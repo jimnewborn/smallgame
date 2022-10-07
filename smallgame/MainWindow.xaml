@@ -24,7 +24,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
+        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown="TextBlock_MouseDown"/>
         <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
         <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
         <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
