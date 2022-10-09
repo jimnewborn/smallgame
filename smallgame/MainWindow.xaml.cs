@@ -18,14 +18,33 @@ namespace smallgame
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    using System.Windows.Threading;
     public partial class MainWindow : Window
     {
         TextBlock lastTextBlockClicked;
         bool findingMatch;
+        DispatcherTimer timer = new DispatcherTimer();
+        int tenthsOfSecobdsElapsed;
+        int mathesFound;
         public MainWindow()
         {
+            timer.Interval = TimeSpan.FromSeconds(.1);
+            timer.Tick += Timer_Tick;
             InitializeComponent();
             SetupGame();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            match.Text = mathesFound.ToString();
+            tenthsOfSecobdsElapsed++;
+            timeTextBlock.Text = (tenthsOfSecobdsElapsed / 10F).ToString("0.0s");
+            if(mathesFound == 8)
+            {
+                timer.Stop();
+                restart.IsEnabled = true;
+                timeTextBlock.Text = timeTextBlock.Text + "-Play Again?";
+            }
         }
 
         private void SetupGame()
@@ -33,7 +52,7 @@ namespace smallgame
             List<string> animalEmoji = new List<string>
             {
                 "🦝","🦝",
-                "🐒","🦝",
+                "🐒","🐒",
                 "🦊","🦊",
                 "🐼","🐼",
                 "🐧","🐧",
@@ -44,11 +63,18 @@ namespace smallgame
             Random random = new Random();
             foreach(TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                int index = random.Next(animalEmoji.Count);
-                string nextEmoji = animalEmoji[index];
-                textBlock.Text = nextEmoji;
-                animalEmoji.RemoveAt(index);
+                if(textBlock.Name != "timeTextBlock" && textBlock.Name != "match")
+                {
+                    int index = random.Next(animalEmoji.Count);
+                    string nextEmoji = animalEmoji[index];
+                    textBlock.Text = nextEmoji;
+                    animalEmoji.RemoveAt(index);
+                }
+                
             }
+            timer.Start();
+            tenthsOfSecobdsElapsed = 0;
+            mathesFound = 0;
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
@@ -56,12 +82,13 @@ namespace smallgame
             TextBlock textBlock = sender as TextBlock;
             if (findingMatch == false)
             {
-                textBlock.Visibility = Visibility.Hidden;
                 lastTextBlockClicked = textBlock;
+                textBlock.Visibility = Visibility.Hidden;
                 findingMatch = true;
             }
-            else if(lastTextBlockClicked == textBlock)
+            else if(lastTextBlockClicked.Text == textBlock.Text)
             {
+                mathesFound++;
                 textBlock.Visibility = Visibility.Hidden;
                 findingMatch = false;
             }
@@ -70,6 +97,19 @@ namespace smallgame
                 lastTextBlockClicked.Visibility = Visibility.Visible;
                 findingMatch = false;
             }
+        }
+
+        private void TimeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(mathesFound == 8)
+            {
+                SetupGame();
+            }
+        }
+
+        private void restart_Click(object sender, RoutedEventArgs e)
+        {
+            SetupGame();
         }
     }
 }

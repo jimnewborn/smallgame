@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:smallgame"
         mc:Ignorable="d"
-        Title="find all of the matching animals" Height="450" Width="400">
+        Title="find all of the matching animals" Height="450" Width="400" MouseDown="TimeTextBlock_MouseDown">
 
     <Grid x:Name="mainGrid" >
         <Grid.ColumnDefinitions>
@@ -25,22 +25,25 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
+        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
 
-        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
-        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Grid.Row="1" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Grid.Row="2" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Height="57" Grid.Row="3" Text="?" TextWrapping="NoWrap" VerticalAlignment="Center" Width="80" FontSize="36" FontFamily="Segoe UI" MouseDown ="TextBlock_MouseDown"/>
+        <TextBlock x:Name="timeTextBlock" HorizontalAlignment="Center" Grid.Row="4" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Grid.ColumnSpan="4" MouseDown="TimeTextBlock_MouseDown"/>
+        <Button x:Name="restart" Content="Button" Grid.Column="3" HorizontalAlignment="Center" Margin="50,36,0,0" Grid.Row="4" VerticalAlignment="Center" Click="restart_Click"/>
+        <TextBlock x:Name="match" Grid.Column="3" HorizontalAlignment="Left" Height="33" Margin="31,10,0,0" Grid.Row="4" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"/>
 
     </Grid>
 </Window>
