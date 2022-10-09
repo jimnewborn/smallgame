@@ -26,6 +26,7 @@ namespace smallgame
         DispatcherTimer timer = new DispatcherTimer();
         int tenthsOfSecobdsElapsed;
         int mathesFound;
+        float re_score=100;
         public MainWindow()
         {
             timer.Interval = TimeSpan.FromSeconds(.1);
@@ -36,19 +37,30 @@ namespace smallgame
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            match.Text = mathesFound.ToString();
+            match.Text = (8-mathesFound).ToString() + " sets left";
             tenthsOfSecobdsElapsed++;
             timeTextBlock.Text = (tenthsOfSecobdsElapsed / 10F).ToString("0.0s");
             if(mathesFound == 8)
             {
+                float cur = tenthsOfSecobdsElapsed / 10F;
+                if (cur < re_score)
+                {
+                    score.Text = "new high score " + cur.ToString("0.0s");
+                    re_score = cur;
+                }
+                else
+                {
+                    score.Text = "the record is still" + re_score.ToString("0.0s");
+                }
                 timer.Stop();
-                restart.IsEnabled = true;
                 timeTextBlock.Text = timeTextBlock.Text + "-Play Again?";
+                play.IsEnabled = true;
             }
         }
 
         private void SetupGame()
         {
+    
             List<string> animalEmoji = new List<string>
             {
                 "🦝","🦝",
@@ -63,8 +75,9 @@ namespace smallgame
             Random random = new Random();
             foreach(TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                if(textBlock.Name != "timeTextBlock" && textBlock.Name != "match")
+                if(textBlock.Name != "timeTextBlock" && textBlock.Name != "match" && textBlock.Name != "score")
                 {
+                    textBlock.Visibility = Visibility.Visible;
                     int index = random.Next(animalEmoji.Count);
                     string nextEmoji = animalEmoji[index];
                     textBlock.Text = nextEmoji;
@@ -75,6 +88,7 @@ namespace smallgame
             timer.Start();
             tenthsOfSecobdsElapsed = 0;
             mathesFound = 0;
+            score.Text = "let's go";
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
@@ -108,6 +122,11 @@ namespace smallgame
         }
 
         private void restart_Click(object sender, RoutedEventArgs e)
+        {
+            SetupGame();
+        }
+
+        private void play_Click(object sender, RoutedEventArgs e)
         {
             SetupGame();
         }
